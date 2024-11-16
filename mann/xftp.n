@@ -1,0 +1,474 @@
+'\" t
+.TH xftp 1 "29 September 1995"
+.na
+.SH NAME
+LLNL XFTP - an X-based interface to FTP
+.RE
+
+.SH SYNOPSIS
+xftp [options]
+.RE
+
+.SH DESCRIPTION
+
+\fILLNL XFTP\fR is a graphical user interface to FTP (File Transfer Protocol).  \fILLNL XFTP\fR does not execute the \fIftp\fR program; instead, it directly communicates with remote FTP servers.  \fILLNL XFTP\fR is an X client and follows the OSF/Motif look-and-feel.  \fILLNL XFTP\fR enables users to transfer files and perform various directory manipulation commands, both remotely and locally.  Two especially notable features are the ability to (1) perform "third-party" file transfers, and (2) transfer or delete entire directory substructures.
+
+\fILLNL XFTP's\fR main window is divided into five main sections: (1) the main menu bar at the top of the window,  (2) the diagnostics log at the bottom, (3) the file transfer controls in the center, and (4 and 5) the "left" and "right" host sections to either side of the file transfer controls.
+
+\fILLNL XFTP\fR can be connected to zero, one, or two hosts.  The hosts may be any combination of local and remote hosts (the local host is the client host upon which \fILLNL XFTP\fR is running).  In this document, a connected host is referred to as either the "left" or "right" host, depending on whether it is displayed in the left or right host section, respectively.
+
+Each host section consists of four major graphical elements: (1) a label which displays the host's name; (2) a menu bar whose menus contain many commands that operate on the host; (3) a "directory" menu; and (4) a scrollable "directory list."
+
+Each host's \fIConnect\fR menu contains commands for connecting/disconnecting local and remote hosts.
+
+Each host's \fIDir\fR menu contains various commands for creating new directories, and for changing and displaying the current directory.
+
+Each host's \fISelect\fR menu contains commands for selecting/deselecting entries in the current directory (the selections appear in the scrollable list of directory entries).
+
+Each host's \fIOps\fR menu contains several commands that operate on selected directory entries.
+
+Each host's directory menu contains each link of the path of the current directory (the last link is displayed).  By selecting a link in the path, the current directory is correspondingly changed.  (Hence, this is a mechanism to traverse up the host's directory structure.)
+
+Each host's directory list contains the entries of the current directory.  One way to select/deselect a directory entry is to click on it.  If an entry is double-clicked, an attempt is made to change the current directory to that entry.  (Hence, this is a way to traverse down the host's directory structure.)
+
+The file transfer controls in the middle of the main window allow the user to initiate file transfers on selected entries.  The transfers can go from left to right or from right to left.  Angle brackets in the \fICopy\fR and \fIRcopy\fR buttons indicate the direction of the transfer (e.g., ">>Copy>>" indicates that a left-to-right transfer would take place).  The \fIView\fR button causes the selected file to be displayed.
+
+The scrollable diagnostics log window at the bottom of the main window displays error and status information.  The user can control the level of verbosity of messages written to this window via the user preference \fIDiagnostics.\fR  The contents of this window can be saved to a file by selecting the \fISave\fR \fILog\fR item in the \fILog\fR menu.  The diagnostics window can be cleared by selecting the \fIClear\fR \fILog\fR item in the \fILog\fR menu.
+
+There is a flag to the left of the diagnostics log window that indicates whether an operation completes successfully or not.  If an operation fails then (1) a beep is emitted, (2) the flag changes from green to red (white to black on monochrome displays), (3) the "OK" in the flag changes to "E", and (4) an error message is written to the diagnostic  log window. The next operation will clear the error flag.
+
+\fILLNL XFTP\fR automatically caches (1) wildcard expressions, (2) paths of current directories, (3) host names and user names used in connecting to remote hosts, and (4) quoted commands.  The purpose of each cache is to reduce the amount of typing required.  For example, when the user wishes to apply a wildcard expression to select directory entries, a list of recently referenced wildcard expressions for that host will be presented to the user; the user can then double-click on an existing wildcard expression to apply it.  The cache is automatically preserved across \fILLNL XFTP\fR sessions in a file named ".xftpcache" in the users home directory.
+.RE
+.SH OPTIONS
+\fILLNL XFTP\fR accepts all of the standard X Toolkit command line options, as well as the following option:
+
+-color
+.RS
+Force \fILLNL XFTP\fR to use a nice color scheme, even if the application defaults file, \fIXFtp\fR, is not found.
+.RE
+.RE
+.SH GETTING STARTED
+Use the \fIConnect\fR menus to connect the two sides to the desired combination of local and/or remote hosts.  (Depending on how the user preferences are set, when \fILLNL XFTP\fR comes up some combination of the left and right sides might already be connected to the local host.)
+
+Once connected, traverse through a host's directory structure by (1) using the directory name menu (the menu just above the directory list), (2) double-clicking on entries in the directory list, (3) selecting an item in the \fIGo to Previous Directory\fR submenu in the host's \fIDir\fR menu, or (4) selecting the \fIChange\fR \fIDirectory\fR item in the host's \fIDir\fR menu.
+
+Obtain different types of views into a host's current directory by selecting the \fIDisplay\fR \fIDirectory\fR (\fILong)\fR or \fIDisplay\fR \fIDirectory\fR (\fITable)\fR items in the host's \fIDir\fR menu.
+
+Select/deselect directory entries to operate on by (1) single-clicking on entries in the main directory list, (2) single-clicking on entries in the tabular directory list, (3) dragging the mouse with the left button held down over entries in the tabular directory list, or (4) by selecting any of the items in the host's \fISelect\fR menu.
+
+Transfer selected items by clicking on the \fICopy\fR or \fIRcopy\fR (recursive copy) buttons.  Be sure to first set the file transfer mode by toggling the appropriate button (\fIASCII\fR or \fIBinary)\fR in the main window.
+
+View a selected file by clicking on the \fIView\fR button.  Configure the viewer by selecting item \fIViewer Preferences\fR in the \fIOptions\fR menu.  Be sure to first set the file transfer mode by toggling the appropriate button (\fIASCII\fR or \fIBinary)\fR in the main window.
+
+Perform other types of operations on selected items by selecting any one of the items in the host's \fIOps\fR menu.
+
+Configure \fILLNL XFTP\fR by selecting the \fIPreferences\fR item in the \fIOptions\fR menu.
+.RE
+.SH COMMANDS
+\fILLNL XFTP\fR contains a large number of commands.  The commands are found in (1) the main menus, (2) the host menus, and (3) in the \fIXfer Ops\fR controls.  Here is a list of the commands:
+
+About LLNL XFTP (in \fIFile\fR menu) 
+.RS
+Gives version information.
+.RE
+
+Change Directory (in \fIDir\fR menus) 
+.RS
+Change the current directory.  A dialog pops up to prompt for the directory to change to.  The directory may be specified with a full or relative path.  Previously referenced directories are cached and displayed in a scrollable list.  Double-click on a path in the list to change to that directory.  Single click on a path in the list to place that entry into the text field labeled "Directory:", where it can be edited.  Click on the \fIOK\fR button to change to the directory displayed in the text field.  (See user preferences \fIAdd to Cache\fR, \fIDiagnostics\fR, \fIDirectory Cache Size\fR, \fIHost Cache Size\fR, and \fISort Caches\fR.)
+.RE
+
+Clear Log (in \fILog\fR menu) 
+.RS
+Clear the diagnostics log window.
+.RE
+
+Connect to Anonymous (in \fIConnect\fR menus)
+.RS
+Easily connect to an anonymous FTP site.  If currently connected, the connection is first closed.  A dialog pops up to prompt for the remote host, user name and password.  The user name is initialized to "anonymous".  The password is initialized to the value of the user preference \fIAnonymous Ftp Password\fR (which you will probably want to set to your email address).  An optional port number may follow the host name (using a space as the delimiter).
+Previously used host/user name pairs are cached, and those with user names "anonymous" or "ftp" are displayed in a scolled list labeled "Recently Referenced Hosts:".  Double-clicking on a host/user name pair initiates a connection.  Single-clicking on a host/user name pair places those values in to the host name and user name fields, where they can be edited.  Click on the \fIConnect\fR button to initiate a connection.  (See user preferences \fIAdd To Cache\fR, \fIAnonymous Ftp Password\fR, \fIDiagnostics\fR, \fIHost Cache Size\fR, \fIUser Cache Size\fR, and \fISort Caches\fR.)
+.RE
+
+Connect to Local (in \fIConnect\fR menus) 
+.RS
+Connect to the local (client) host.  If currently connected, the connection is first closed.  (See user preferences \fILeft Auto Local Login\fR and \fIRight Auto Local Login\fR.)
+.RE
+
+Connect to Remote (in \fIConnect\fR menus) 
+.RS
+Connect to a remote host (use \fIConnect to Anonymous\fR to more easily connect to an anonymous FTP site).  If currently connected, the connection is first closed.  A dialog pops up to prompt for the remote host and user names. The user name is initialized to the value of the environment variable \fIUSER\fR.  An optional port number may follow the host name (using a space as the delimiter).  Previously used host/user name pairs are cached and those with user names other than "anonymous" and "ftp" displayed in a scolled list labeled "Recently Referenced Hosts:".  Double-clicking on a host/user name pair initiates a connection.  Single-clicking on a host/user name pair places those values into the host name and user name fields, where they can be edited.  Click on the \fIConnect\fR button to initiate a connection.  (See user preferences \fIAdd To Cache\fR, \fIDiagnostics\fR, \fIHost Cache Size\fR, \fIUser Cache Size\fR, and \fISort Caches\fR.)
+.RE
+
+Contextual Help (in \fIHelp\fR menu) 
+.RS
+Enter contextual-help mode.  The mouse cursor changes to a pointing hand.  Move the hand and click on any graphical element in the main window that you wish to know more about.
+.RE
+
+Copy (in \fIXfer Ops\fR controls) 
+.RS
+Transfers the selected files according to the mode (\fIASCII\fR or \fIBinary)\fR specified in \fIXfer Mode\fR.  A dialog pops up to enable the user to monitor the progress of the transfers.  The dialog contains a button for aborting the transfers.  (See user preferences \fIBeep When Ops Done\fR, \fIDiagnostics\fR, \fIInitial Transfer Mode\fR, and \fIInquire On Copy\fR.)
+.RE
+
+Delete Selected Entry(s) (in \fIOps\fR menus) 
+.RS
+Deletes the selected entries.  A dialog pops up to enable the user to monitor the progress of the deletions.  The dialog contains a button for aborting the deletions.  (See user preferences \fIBeep When Ops Done\fR, \fIDiagnostics\fR, and \fIInquire On Delete\fR.)
+.RE
+
+Deselect All Entries (in \fISelect\fR menus) 
+.RS
+Deselect all the entries in the host's current directory.
+.RE
+
+Disconnect (in \fIConnect\fR menus) 
+.RS
+Close the currently connected host.  (See user preference \fIDiagnostics\fR.)
+.RE
+
+Display Directory (Long) (in \fIDir\fR menus) 
+.RS
+Pops up a dialog that displays the contents of the current directory in a scrollable list.  If supported by the host (and this is almost always the case), additional information about each directory entry is displayed, such as file length and access restrictions.  This display is automatically updated as the current directory changes.  This directory display does not support selecting entries or displaying the current selection.  \fIWarning:\fR Using this feature can increase network traffic, put an additional load on the remote host, and slow down interactivity.   (See user preference \fIDiagnostics\fR and \fISort Long Lists By Date\fR.)
+.RE
+
+Display Directory Path (in \fIDir\fR menus) 
+.RS
+Pops up a dialog that displays the current directory for that host.  It will be automatically updated as the current directory changes.  (See user preference \fIDiagnostics\fR.)
+.RE
+
+Display Directory (Table) (in \fIDir\fR menus) 
+.RS
+Pops up a dialog that displays the contents of the current directory in tabular form.  This dialog may be used to view and modify the directory's selected entries.  Entries may be selected/deselected either by clicking or by moving the cursor over the entries with the mouse button down.  Moving the mouse too quickly can cause some of the entries to be skipped.  If an entry is double-clicked, an attempt is made to change the current directory to that entry.  This display is automatically updated as the current directory changes.  (See user preference \fIDiagnostics\fR.)
+.RE
+
+Getting Started (in \fIHelp\fR menu) 
+.RS
+Describes how to get started using \fILLNL XFTP\fR.
+.RE
+
+Go to Previous Directory (in \fIDir\fR menus)
+.RS
+Displays a pullright menu that allows the user to easily change the current directory to a previously referenced directory.  (See user preferences \fIAdd to Cache\fR, \fIDiagnostics\fR, \fIDirectory Cache Size\fR, \fIHost Cache Size\fR, and \fISort Caches\fR.)
+.RE
+
+LLNL XFTP Overview (in \fIHelp\fR menu) 
+.RS
+Gives a high-level description of \fILLNL XFTP\fR.
+.RE
+
+Make Directory (in \fIDir\fR menus) 
+.RS
+Pops up a dialog to prompt for the name of a directory to make in the current directory.  The user preference \fIEnter Dir Upon Creation\fR controls whether the the newly created directory is automatically entered upon creation.  (See user preferences \fIDiagnostics\fR and \fIEnter Dir Upon Creation\fR.)
+.RE
+
+Move Selected Entry(s) (in \fIOps\fR menus) 
+.RS
+Move selected entries from the current directory to another directory on the same host.  This is similar to the UNIX \fImv\fR command, but without rename capability.  (See user preferences \fIBeep When Ops Done\fR, and \fIDiagnostics\fR.)
+.RE
+
+Preferences (in \fIOptions\fR menu) 
+.RS
+Display the user preferences dialog.  See \fIUSER PREFERENCES\fR section for a description of user preferences.
+.RE
+
+Quit (in \fIFile\fR menu) 
+.RS
+Terminate \fILLNL XFTP\fR.
+.RE
+
+Rcopy (in \fIXfer\fR \fIOps\fR controls) 
+.RS
+Recursively transfers the selected entries according to the mode (\fIASCII\fR or \fIBinary\fR) specified in \fIXfer Mode\fR.  If a selected entry is a directory, an attempt is made to transfer its entire directory subtree.  The user preference \fIOverwrite Dir On Copy\fR lets the user control whether or not it is okay to overwrite an existing directory.  A dialog pops up to enable the user to monitor the progress of the transfers.  The dialog contains a button for aborting the transfers.  (See user preferences \fIBeep When Ops Done\fR, \fIDiagnostics\fR, \fIInitial Xfer Mode\fR, \fIInquire On Copy\fR, and \fIOverwrite Dir On Copy\fR.)
+.RE
+
+Recursively Delete Selected Entry(s) (in \fIOps\fR menus) 
+.RS
+Recursively deletes the selected entries.  A dialog pops up to enable the user to monitor the progress of the deletions.  The dialog contains a button for aborting the deletions.  \fIWarning:\fR Exercise extreme caution when using this command because it deletes entire directory subtrees.  To minimize the chance of an unintentional deletion, this menu item is greyed out unless the user preference \fIRecursive Delete Enabled\fR is enabled.  (See user preferences \fIBeep When Ops Done\fR, \fIDiagnostics\fR, \fIInquire On Delete\fR, and \fIRecursive Delete Enabled\fR.)
+.RE
+
+Rename Selected Entry(s) (in \fIOps\fR menus) 
+.RS
+Pop up a dialog to individually rename selected entries.  This is similar to the UNIX \fImv\fR command except that the renamed entries cannot be moved to another directory.  (See user preference \fIDiagnostics\fR.)
+.RE
+
+Save Log (in \fILog\fR menu) 
+.RS
+Write the contents of the diagnostics window to a user-specified file.  The existing contents of the diagnostics window are not removed.
+.RE
+
+Save Preferences (in \fIOptions\fR menu) 
+.RS
+Save the current settings of the user and viewer preferences.
+.RE
+
+Select All Entries (in \fISelect\fR menus) 
+.RS
+Select all the entries in the host's current directory.
+.RE
+
+Send Quoted Command (in \fIOps\fR menus)
+.RS
+Pops up a dialog to prompt for a "raw" command to send to the FTP server of the remote host.  Previously issued commands are cached and displayed in a scrolled list.  Double-clicking on a command in the list issues that command.  To have a command act on items selected in the host's directory list, use the quote placeholder (which by default is "<>") to represent a selected item.  For example, type "stage 1 <>" to send a STAGE command to the the remote host for each selected item.  The quote placeholder can changed via the user preferences.  (See user preferences \fIBeep When Ops Done\fR, \fIDiagnostics\fR, and \fIQuote Placeholder\fR.)
+.RE
+
+Use Wildcard (in \fISelect\fR menus) 
+.RS
+Pops up a dialog to prompt for a wildcard expression to use in selecting entries in the host's current directory list.  Previously referenced wildcard expressions are cached and displayed in a scrolled list.  Double-clicking on an item in the list applies that wildcard expression.  Single-clicking on an item in the list places the expression in a text field where it may be edited.  Choose the toggle item \fIReplace Filename Selection\fR to cause the currently selected entries to be cleared before applying the wildcard.  Choose the toggle item \fIAdd to Filename Selection\fR to cause the entries selected by the wildcard to be added to the current selection.  (See user preference \fIInitial Wildcard Mode\fR).
+.RE
+
+Using Help (in \fIHelp\fR menu) 
+.RS
+Gives a description of the online help package.
+.RE
+
+View (in \fIXfer Ops\fR controls)
+.RS
+Displays the selected file.  The \fIViewer Preferences\fR dialog (accessible via the \fIOptions\fR menu) can be used to control whether the file will be displayed using the built-in viewer or using an external viewer of the user's choice (e.g., \fIemacs\fR or \fIxv\fR).  The selection of the viewer is configurable, based on the file extension (e.g., ".gif" or ".jpg").  There is no limit on the number or types of viewers that can be simultaneously displayed.
+
+The file is transferred according to the mode (\fIASCII\fR or \fIBinary\fR) specified in \fIXfer Mode\fR.  A dialog pops up to enable the user to monitor the progress of the transfer.  The dialog contains a button for aborting the transfer.
+
+The destination of the transfer is a temporary directory created in the directory defined as \fIP_tmpdir\fR in the include file stdio.h.  If the environment variable \fITMPDIR\fR is defined, it is used as the directory.  The temporary directory, and the files it contains, are automatically deleted when the user dismisses the viewer or terminates \fILLNL XFTP\fR.
+
+If the file is recognized as being compressed, it is expanded before viewing.  \fILLNL XFTP\fR excutes the following decompressors based on the file extension: \fIgunzip\fR for ".z" and ".gz"; \fIuncompress\fR for ".Z"; \fIatob\fR for "atob"; and \fIuudecode\fR for ".uu".  \fILLNL XFTP\fR searches for the decompressor application in the standard way using the \fIPATH\fR environment variable.
+.RE
+
+Viewer Preferences (in \fIOptions\fR menu) 
+.RS
+Display the viewer preferences dialog.  See \fIVIEWER PREFERENCES\fR section for a description of viewer preferences.
+.RE
+.RE
+.SH USER PREFERENCES
+Selecting item \fIPreferences\fR in the \fIOptions\fR menu pops up a dialog that allows the user to configure \fILLNL XFTP\fR according to his/her preferences.  The user is presented with a number of configuration parameters, which are set by either toggling, sliding, or typing.  Click the \fIApply\fR button to cause the new values to take effect.  The \fIOK\fR button has the same effect as \fIApply\fR, but the dialog is also closed.  The \fICancel\fR button undoes changes made since \fIOK\fR or \fIApply\fR were last pressed.  The preferences can be preserved across \fILLNL XFTP\fR sessions in a text file named ".xftprc" in the user's home directory.  The user may alter the order the preferences are presented in the dialog by (1) terminating \fILLNL XFTP\fR, (2) using a text editor to change the order of lines in ".xftprc" and (3) restarting \fILLNL XFTP\fR.
+
+Add To Cache 
+.RS
+Specifies whether newly referenced items should be added to the directory, quoted command, wildcard, and host/user caches.  It is usually desirable to choose \fIYes.\fR  Choose \fINo\fR if referencing a series of seldom-referenced items that would clear the cache of your favorite entries.
+.RE
+
+Anonymous Ftp Password
+.RS
+The value to initialize the "Password" field of the \fIConnect to Anonymous\fR dialog to.  This is normally your email address.  The \fIConnect to Anonymous\fR dialog is accessible via each host's \fIConnect\fR menu.
+.RE
+
+Beep When Ops Done 
+.RS
+Specifes whether to beep when each set of deletion, move, quoted command, and file transfer operations completes.
+.RE
+
+Diagnostics
+.RS
+Specifies the level of diagnostics information to be written to the diagnostics log window.  Choose \fIQuiet\fR for error messages, only.  Choose \fINormal\fR for error messages and success messages.  Choose \fIVerbose\fR for error messages, success messages, and replies received from the FTP servers.  Choose \fIDebug\fR for error messages, success messages, commands sent to the FTP servers, replies received from the FTP servers, and other assorted diagnostics.
+.RE
+
+Directory Cache Size 
+.RS
+The maximum number of previously referenced directory paths cached per host.  The cache is preserved across \fILLNL XFTP\fR sessions.
+.RE
+
+Enhance Colors 
+.RS
+Speficies whether to "pretty up" some of the graphical elements (such as scrolled lists and text fields) by changing the normal background colors.  This preference has no effect on monochrome displays.  Choose \fIYes\fR to enhance the appearance, or \fINo\fR for the usual Motif look.
+.RE
+
+Enter Dir Upon Creation
+.RS
+Specifies whether to automatically enter a newly created directory.
+.RE
+
+Host Cache Size 
+.RS
+The maximum number of hosts to cache items for.  The cache is preserved across \fILLNL XFTP\fR sessions.
+.RE
+
+Initial Logfile Name 
+.RS
+The default file name to be presented to the user in the "Save Log" dialog.
+.RE
+
+Initial Transfer Mode 
+.RS
+The default file transfer mode (\fIASCII\fR or \fIBinary\fR).
+.RE
+
+Initial Wildcard Mode 
+.RS
+The default mode of the "Use Wildcard" dialog.  Choose \fIReplace\fR to make "Replace Filename Selection" the default.  Choose \fIAdd\fR to make "Add to Filename Selection" the default.
+.RE
+
+Inquire On Copy 
+.RS
+Specifies whether to pop up a dialog that asks the user to confirm that the indicated transfers should take place.
+.RE
+
+Inquire On Delete 
+.RS
+Specifies whether to pop up a dialog that asks the user to confirm that the indicated deletions should take place.
+.RE
+
+Inquire On Move 
+.RS
+Specifies whether to pop up a dialog that asks the user to confirm that the indicated moves should take place.
+.RE
+
+Inquire On Quote 
+.RS
+Specifies whether to pop up a dialog that asks the user to confirm that the indicated commands should be sent.
+.RE
+
+Left Auto Local Login 
+.RS
+Specifies whether to automatically connect the left side to the local (client) host upon starting \fILLNL XFTP\fR.
+.RE
+
+Max Ftp Retries 
+.RS
+Specifies the maximum number of retries \fILLNL XFTP\fR will attempt if it receives a response from an FTP server that indicates the desired operation failed because of some temporary condition on the remote host.
+.RE
+
+Max Time For Ftp Reply
+.RS
+Specifies the maximum time in seconds that \fILLNL XFTP\fR will wait for a response from an FTP server before concluding that the connection has been broken.
+.RE
+
+Overwrite Dir On Copy
+.RS
+Specifies whether it is okay to overwrite an existing directory when recursively copying another directory by the same name.  If a sink directory is overwritten then none of its subdirectories will be deleted, but new files and subdirectories might be added to it, and some existing files might be replaced.
+.RE
+
+Preserve Vms Ver Nums
+.RS
+Specifies whether to preserve VMS file version numbers when transferring files from a VMS system.  This is only an issue for those VMS FTP servers that provide numbers (not all do).
+.RE
+
+Print Password In Debug
+.RS
+Specifies whether to print passwords in the log window when the user preference \fIDiagnostics\fR is set to \fIDebug\fR.
+.RE
+
+Quote Cache Size 
+.RS
+The number of quoted commands to cache.  The cache is preserved across \fILLNL XFTP\fR sessions.
+.RE
+
+Quote Placeholder 
+.RS
+This is used as a placeholder in a quoted command to represent items selected in the directory list.  For example, the quoted command "stage 1 <>" will send a STAGE command to the remote host for each selected item.  The default value is "<>", but the placeholder can be set to any nonnull printable string.
+.RE
+
+Recursive Delete Enabled 
+.RS
+Specifies whether to enable the \fIRecursively Delete Selected Entry(s)\fR item in the \fIOps\fR menus.  Choose \fINo\fR to help prevent accidental recursive deletions.
+.RE
+
+Right Auto Local Login 
+.RS
+Specifies whether to automatically connect the right side to the local (client) host upon starting \fILLNL XFTP\fR.
+.RE
+
+Sort Caches 
+.RS
+Specifies whether to sort (by ASCII-collating sequence) cached items when they are displayed in dialogs.  If \fIYes\fR, then sort.  If \fINo\fR, then the most recently referenced items are placed at the top of the list.
+.RE
+
+Sort Longs Lists By Date
+.RS
+Specifies whether to attempt to sort the "long" directory lists by time modified (with most recent listed first) instead of by name.  The \fIYes\fR option is considered unsafe because some FTP servers to not support this option and may give unpredictable results.  (Most UNIX hosts support this option.)
+.RE
+
+Store Unique 
+.RS
+Specifies whether existing sink files are to be renamed before file transfer occurs.  If \fIYes\fR then the existing sink file is typically renamed by appending a "." (period) followed by an integer between 1 and 99.
+.RE
+
+Symbols On Dir Entries 
+.RS
+Specifies whether to append single characters to directory entries in order to distinguish their types.  If \fIYes(Unsafe)\fR is chosen, "/" is appended to directories, "*" is appended to executables, "@" is appended to symbolic links, and "=" is appended to AF_UNIX address family sockets.  The "Yes" option is considered to be unsafe because some FTP servers do not support this feature and may give unpredictable results.  (Most UNIX hosts support this option.)  Furthermore, if you are referencing a directory or directory entry whose name ends with one of the special characters, you will need to select \fINo(Safe)\fR.  When in doubt, select \fINo(Safe)\fR.  One further note: use of this feature can dramatically degrade interactivity.
+.RE
+
+Use Last Dir At Login 
+.RS
+Specifies whether to automatically enter the most recently referenced directory after connecting to a host.  If this option is requested, but is not possible to perform (e.g., because the directory no longer exists), an error message will be generated, and your home directory will be entered.  \fINote:\fR This mechanism attempts to enter the last directory referenced on the host, regardless of whether it is another user's directory.
+.RE
+
+User Cache Size 
+.RS
+The number of user names to cache (for remote hosts).  The cache is preserved across \fILLNL XFTP\fR sessions.
+.RE
+
+Wildcard Cache Size 
+.RS
+The number of wildcard expressions to cache.  The cache is preserved across \fILLNL XFTP\fR sessions.
+.RE
+.RE
+.SH VIEWER PREFERENCES
+Selecting item \fIViewer Preferences\fR in the \fIOptions\fR menu pops up a dialog that allows the user to control which file will be displayed with which viewer, based on the file extension.
+
+A file to be viewed is first transferred to a temporary directory and then, if necessary, is decompressed.  The file extension (e.g., ".gif") is then examined to determine which viewer the file is to be displayed in.  There are two types of viewers: the viewer built into \fILLNL XFTP\fR (which is suitable for displaying text files) and external viewers (e.g., \fIemacs\fR for text and \fIxv\fR for graphics).
+
+Single-click on an entry in the \fIExtensions\fR list to place that extension and its associated command line into the \fIExtension\fR and \fIViewer Command Line\fR text fields, respectively.
+
+An extension is a file suffix that begins with a period (".").  A special entry in the extensions list, "OTHERS" represents all files that do not have their extension listed (including files with no extensions).
+
+The pattern "<>" in a command line is a placeholder for the name of the file to be viewed.  A blank command line indicates that the built-in viewer is to be used.
+To add a new extension to the list, fill in the \fIExtension\fR and \fIViewer Command Line\fR text fields and press the \fIAdd\fR button.  If the text in \fIExtension\fR does not begin with a period, one will be added.  If the extension is already in the list, it will be replaced.
+
+To replace the command line associated with an extension, (1) single-click on the list item to select it, (2) edit the command line, and (3) press the \fIReplace\fR button.
+
+To delete an extension from the list, single-click on the list item to select it and then press the \fIDelete\fR button.  The "OTHERS" entry cannot be deleted (but it's command line can be replaced).
+
+Click the \fIApply\fR button to cause the new changes to take effect.  The \fIOK\fR button has the same effect as \fIApply\fR, but the dialog is also closed.  The \fICancel\fR button undoes the changes made since \fIOK\fR or \fIApply\fR were last pressed.
+
+The viewer preferences can be preserved across \fILLNL XFTP\fR sessions in a text file named ".xftpview" in the user's home directory (select \fISave Preferences\fR in the main window's \fIOptions\fR menu).
+.RE
+.SH LIMITATIONS
+Here are some things to watch out for:
+
+\fILLNL XFTP\fR might not work with some old X servers.  For example, some older OpenWindows servers might dump core.  MacX fans should use nothing older than version 1.1.7b.
+
+Old, buggy versions of Motif can cause weirdness.
+
+\fILLNL XFTP\fR might not work correctly with some non-Unix FTP servers.  (If you can give us temporary access to such a server, we might be able to fix the problem.)
+
+Out-of-spec FTP servers can cause untold grief.  (Most Unix-based servers work correctly.)
+
+Third-party file transfers will not work unless at least one of the remote FTP servers supports the PASV (passive) command.
+.RE
+.SH FILES
+.nf
+$HOME/.xftpcache   cache file
+$HOME/.xftprc      user preferences
+$HOME/.xftpview    viewer preferences
+XFtp               application defaults file
+.SH AVAILABILITY
+The sources for \fILLNL XFTP\fR are tarred and compressed, and are available via anonymous ftp:
+.nf
+
+    ftp://coral.ocf.llnl.gov/pub/ia/llnlxftp/latest_xftp.tar.Z
+    http://www.llnl.gov/liv_comp/xftp.html
+.RE
+.RE
+.SH SUPPORT
+Because our resources are limited, we will not be able to give individual assistance in building and using \fILLNL XFTP\fR.  However, your comments, suggestions and bug reports are valuable in helping us determine how to best direct our efforts.  Our email address is
+.nf
+
+                           llnlxftp@llnl.gov
+
+.RE
+.SH COPYRIGHT
+(c) 1993-1995.  The Regents of the University of California.  All rights reserved.
+
+This work was produced at the University of California, Lawrence Livermore National Laboratory (UC LLNL) under contract no.  W-7405-ENG-48 (Contract 48) between the U.S. Department of Energy (DOE) and The Regents of the University of California (University) for the operation of UC LLNL.  Copyright is reserved to the University for purposes of controlled dissemination, commercialization through formal licensing, or other disposition under terms of Contract 48; DOE policies, regulations and orders; and U.S. statutes.  The rights of the Federal Government are reserved under Contract 48 subject to the restrictions agreed upon by the DOE and University.
+
+                           DISCLAIMER
+
+This software was prepared as an account of work sponsored by an agency of the United States Government.  Neither the United States Government nor the University of California nor any of their employees, makes any warranty, express or implied, or assumes any liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its specific commercial products, process, or service by trade name, trademark, manufacturer, or otherwise, does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or the University of California. The views and opinions of the authors expressed herein do not necessarily state or reflect those of the United States Government or the University of California, and shall not be used for advertising or product endorsement purposes.
+
+Permission to use, copy, modify and distribute this software and its documentation for any non-commercial purpose, without fee, is hereby granted, provided that the above copyright notice and this permission notice appear in all copies of the software and supporting documentation, and that all UC LLNL identification in the user interface remain unchanged.  The title to copyright LLNL XFTP shall at all times remain with The Regents of the University of California and users agree to preserve same. Users seeking the right to make derivative works with LLNL XFTP for commercial purposes may obtain a license from the Lawrence Livermore National Laboratory's Technology Transfer Office, P.O. Box 808, L-795, Livermore, CA 94550.
+
+.SH SEE ALSO
+ftpd(8C)
+.RE
+.SH AUTHOR
+.nf
+     Neale G. Smith, Lawrence Livermore National Laboratory
+.RE
+
+
+

@@ -1,0 +1,23 @@
+                       **************************
+                       *   How to Report Bugs   *
+                       **************************
+
+Email bug reports to llnlxftp@llnl.gov.  Please report compiler-generated
+warning errors as well as run-time errors.  In addition to the particulars
+of the problem, please specify:
+
+  o  LLNL XFTP version number
+
+  o  System (e.g., SGI IRIX 4.0.5)
+
+  o  Compiler (e.g., gcc) and options
+
+  o  Versions of Motif and X11
+
+
+                           ******************
+                           *   Known Bugs   *
+                           ******************
+
+  o  LLNL XFTP chokes on Apollo path names that begin with "//".
+

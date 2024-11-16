@@ -1,0 +1,364 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                                                                       !
+!                 LLNL XFTP's application defaults file                 !
+!                                                                       !
+!  See comments at end of file for info on using a larger font.         !
+!                                                                       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!
+! Colors
+!
+XFtp*background: grey76
+XFtp*foreground: brown
+XFtp*main*logo.foreground: Blue
+
+
+!
+! Font
+!
+XFtp*defaultFontList: *hel*-b*-r-*-12-*,variable
+XFtp*fontList: *hel*-b*-r-*-12-*,variable
+XFtp*leftDirLong*dirList.fontList: 7x13bold,fixed
+XFtp*rightDirLong*dirList.fontList: 7x13bold,fixed
+XFtp*view*text.fontList: 7x13bold,fixed
+
+
+!
+! Make sure borders look good
+!
+XFtp*borderWidth: 0
+
+
+!
+! Main Window resources
+!
+XFtp.title: LLNL XFTP
+*main.width: 506
+*main.height: 444
+*main.mainMenuBar*marginWidth: 2
+*main*hostMenuBar*marginWidth: 2
+*main*dirName.labelString: Dir:
+*main*dirList.scrollBarDisplayPolicy: STATIC
+*main*dirList.visibleItemCount: 10
+*main*xferModeLabel.labelString: Xfer Mode
+*main*ascii.labelString: ASCII
+*main*binary.labelString: Binary
+*main*xferOpsLabel.labelString: Xfer Ops
+*main*xferOps.entryAlignment: ALIGNMENT_CENTER
+*main*xferOps.viewButton.labelString: View
+*main*bottomForm.paneMinimum: 79
+*main*resultFlagFrame.shadowType: XmSHADOW_IN
+*main*log.editable: False
+*main*log.marginHeight: 3
+
+
+!
+! Wildcard Dialog resources
+!
+*wildcard_popup.title: Wildcard
+*wildcard*listLabel.labelString: Recently Referenced Wildcards:
+*wildcard*list.visibleItemCount: 6
+*wildcard*list.scrollBarDisplayPolicy: STATIC
+*wildcard*list.width: 220
+*wildcard*textLabel.labelString: Wildcard to Apply:
+*wildcard*replaceToggle.labelString: Replace Filename Selection
+*wildcard*addToggle.labelString: Add to Filename Selection
+
+
+!
+! Remote Connect Dialog resources
+!
+*rConnect_popup.title: Connect to Remote Host
+*rConnect.okLabelString: Connect
+*rConnect*hostListLabel.labelString: Recently Referenced Hosts:
+*rConnect*hostList.visibleItemCount: 6
+*rConnect*hostList.scrollBarDisplayPolicy: STATIC
+*rConnect*hostNameLabel.labelString: Host Name:
+*rConnect*userNameLabel.labelString: User Name:
+
+
+!
+! Anonymous Remote Connect Dialog resources
+!
+*aConnect_popup.title: Connect to Anonymous
+*aConnect.okLabelString: Connect
+*aConnect*hostListLabel.labelString: Recently Referenced Hosts:
+*aConnect*hostList.visibleItemCount: 6
+*aConnect*hostList.scrollBarDisplayPolicy: STATIC
+*aConnect*hostNameLabel.labelString: Host Name:
+*aConnect*userNameLabel.labelString: User Name:
+*aConnect*passwordLabel.labelString: Password:
+
+
+!
+! Password Dialog resources
+!
+*password_popup.title: Password
+*password.selectionLabelString: Type password
+
+
+!
+! Account Dialog resources
+!
+*account_popup.title: Account
+*account.selectionLabelString: Type account
+
+
+!
+! Change Directory Dialog resources
+!
+*changeDir_popup.title: Change Directory
+*changeDir.listLabelString: Recently Referenced Directories:
+*changeDir.selectionLabelString: Directory:
+
+
+!
+! Make Directory Dialog resources
+!
+*makeDir_popup.title: Make Directory
+*makeDir.selectionLabelString: Directory Name:
+
+
+!
+! Verify Dialog resources
+!
+*verify_popup.title: Verify Selection
+*verify*list.visibleItemCount: 8
+*verify*list.scrollBarDisplayPolicy: STATIC
+
+
+!
+! Destination Directory Dialog resources
+!
+*destdir_popup.title: Destination Directory
+*destdir*instruction.labelString: Display Destination Directory
+*destdir*dirName.labelString: Dir:
+*destdir*dirList.scrollBarDisplayPolicy: STATIC
+*destdir*dirList.width: 228
+*destdir*form.height: 250
+
+
+!
+! Rename Dialog resources
+!
+*rename_popup.title: Rename
+*rename.okLabelString: Rename
+*rename.applyLabelString: Skip
+*rename*oldNameLabel.labelString: Old name:
+*rename*newNameLabel.labelString: New name:
+
+
+!
+! Quote Dialog resources
+!
+*quote_popup.title: Send Quoted Command
+*quote.okLabelString: Send
+*quote*listLabel.labelString: Recently Referenced Commands:
+*quote*list.visibleItemCount: 6
+*quote*list.scrollBarDisplayPolicy: STATIC
+*quote*list.width: 220
+*quote*textLabel.labelString: Low-level FTP Command:
+*quote*warningLabel.labelString: WARNING!
+*quote*warningFrame.shadowType: SHADOW_ETCHED_OUT
+*quote*warningMsg1.labelString: Do not send commands directly to the
+*quote*warningMsg1.alignment: ALIGNMENT_BEGINNING
+*quote*warningMsg2.labelString: FTP server unless you know what you
+*quote*warningMsg2.alignment: ALIGNMENT_BEGINNING
+*quote*warningMsg3.labelString: are doing.  Press Help for details.
+*quote*warningMsg3.alignment: ALIGNMENT_BEGINNING
+
+
+!
+! Question Dialog resources
+!
+*question_popup.title: Question
+*question.okLabelString: Yes
+*question.cancelLabelString: No
+
+
+!
+! Abort Dialog resources
+!
+*abort_popup.title: Abort in Progress
+*abort.abortMessage.labelString:\
+ABORT OPERATION IN PROGRESS\n\n------------\n\nPLEASE BE PATIENT
+
+
+!
+! Save Log Dialog resources
+!
+*saveLog_popup.title: Save Diagnostics Log
+*saveLog.selectionLabelString: Log File Name:
+
+
+!
+! File Transfer Monitor Dialog resources
+!
+*xfermon_popup.title: File Transfer Monitor
+*xfermon.okLabelString: Abort
+*xfermon.width: 400
+*xfermon.height: 221
+*xfermon.resizePolicy: RESIZE_NONE
+*xfermon*statusLabel.labelString: Status:
+*xfermon*status.leftOffset: 95
+*xfermon*nameLabel.labelString: File Name:
+*xfermon*name.leftOffset: 95
+*xfermon*lengthLabel.labelString: File Length:
+*xfermon*length.leftOffset: 95
+*xfermon*bytesMovedLabel.labelString: Bytes Moved:
+*xfermon*bytesMoved.leftOffset: 95
+
+
+!
+! Preferences Dialog resources
+!
+*prefs_popup.title: Xftp Preferences
+*prefs*okButton.labelString: OK
+*prefs*applyButton.labelString: Apply
+*prefs*cancelButton.labelString: Cancel
+*prefs*helpButton.labelString: Help
+*prefs.scrolledWindow.height: 280
+*prefs.scrolledWindow*rowColumn.frame.shadowType: SHADOW_OUT
+*prefs.scrolledWindow*radioBoxFrame.shadowType: SHADOW_ETCHED_IN
+*prefs.scrolledWindow.width: 447
+
+
+!
+! Left Directory Path Dialog resources
+!
+*leftDirPath_popup.title: "Left" Host Directory
+*leftDirPath.cancelLabelString: Close
+*leftDirPath.width: 350
+*leftDirPath.height: 100
+
+
+!
+! Right Directory Path Dialog resources
+!
+*rightDirPath_popup.title: "Right" Host Directory
+*rightDirPath.cancelLabelString: Close
+*rightDirPath.width: 350
+*rightDirPath.height: 100
+
+
+!
+! Left Long Directory List Dialog resources
+!
+*leftDirLong_popup.title: "Left" Long Directory List
+*leftDirLong.closeButton.labelString: Close
+*leftDirLong.helpButton.labelString: Help
+*leftDirLong*dirList.columns: 75
+*leftDirLong*dirList.rows: 12
+
+
+!
+! Right Long Directory List Dialog resources
+!
+*rightDirLong_popup.title: "Right" Long Directory List
+*rightDirLong.closeButton.labelString: Close
+*rightDirLong.helpButton.labelString: Help
+*rightDirLong*dirList.columns: 75
+*rightDirLong*dirList.rows: 12
+
+
+!
+! Left Directory Table Dialog resources
+!
+*leftDirTable_popup.title: "Left" Tabular Directory List
+*leftDirTable.closeButton.labelString: Close
+*leftDirTable.helpButton.labelString: Help
+*leftDirTable.scrolledWindow.width: 400
+*leftDirTable.scrolledWindow.height: 200
+
+
+!
+! Right Directory Table Dialog resources
+!
+*rightDirTable_popup.title: "Right" Tabular Directory List
+*rightDirTable.closeButton.labelString: Close
+*rightDirTable.helpButton.labelString:  Help
+*rightDirTable.scrolledWindow.width: 400
+*rightDirTable.scrolledWindow.height: 200
+
+
+!
+! About XFTP Dialog resources
+!
+*about_popup.title: About LLNL XFTP
+*about.cancelLabelString: Close
+*about.helpLabelString: More
+
+!
+! Help Dialog resources
+!
+*help_popup.title: Help
+*help.width: 450
+*help.height: 300
+
+
+!
+! Information Dialog resources
+!
+*information_popup.title: Information
+
+
+!
+! Monitor resources
+!
+*mpMonitor_popup.title: Monitor
+*mpMonitor.okLabelString: Abort
+*mpMonitor.width: 350
+*mpMonitor.height: 100
+
+
+!
+! View Dialog resources
+!
+*view.saveButton.labelString: Save
+*view.closeButton.labelString: Close
+*view.helpButton.labelString: Help
+*view*text.columns: 70
+*view*text.rows: 18
+
+
+!
+! Viewer Preferences Dialog resources
+!
+*viewPrefs_popup.title: Viewer Preferences
+*viewPrefs*listLabel.labelString: Extensions:
+*viewPrefs*list.visibleItemCount: 8
+*viewPrefs*list.scrollBarDisplayPolicy: STATIC
+*viewPrefs*extensionLabel.labelString: Extension:
+*viewPrefs*commandLineLabel.labelString: Viewer Command Line:
+*viewPrefs*editFrame.shadowType: SHADOW_ETCHED_IN
+*viewPrefs*addButton.labelString: Add
+*viewPrefs*replaceButton.labelString: Replace
+*viewPrefs*deleteButton.labelString: Delete
+*viewPrefs*messageFrame.shadowType: SHADOW_ETCHED_OUT
+*viewPrefs*message1.labelString: If "Viewer Command Line" is null then the built-in
+*viewPrefs*message1.alignment: ALIGNMENT_BEGINNING
+*viewPrefs*message2.labelString: viewer will be used.    Use "<>" for file name.
+*viewPrefs*message2.alignment: ALIGNMENT_BEGINNING
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+!   Use the following settings for large font:
+!
+!   XFtp*defaultFontList: *hel*-b*-r-*-14-*,variable
+!   XFtp*fontList: *hel*-b*-r-*-14-*,variable
+!   XFtp*leftDirLong*dirList.fontList: 9x15bold,fixed
+!   XFtp*rightDirLong*dirList.fontList: 9x15bold,fixed
+!   XFtp*view*text.fontList: 9x15bold,fixed
+!   *main.width: 570
+!   *main.height: 460
+!   *xfermon*status.leftOffset: 102
+!   *xfermon*name.leftOffset: 102
+!   *xfermon*length.leftOffset: 102
+!   *xfermon*bytesMoved.leftOffset: 102
+!   *prefs.scrolledWindow.width: 470
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+

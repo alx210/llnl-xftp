@@ -1,0 +1,133 @@
+******************************************************************************
+*                                                                            *
+*                               NEW FEATURES                                 *
+*                                                                            *
+*  This file summarizes major changes made from one official release to the  *
+*  next.  See file "CHANGES" if you are interested in viewing an exhaustive  *
+*  list of changes (including bug fixes, porting modifications, etc.) made   *
+*  to the program.                                                           *
+*                                                                            *
+******************************************************************************
+
+
+                    *************************************
+                    *   New Features in LLNL XFTP 2.1   *
+                    *************************************
+
+
+  Minor New Functionality:
+  ------------------------
+
+  o  You now have the ability to specify (via a new user preference,
+     "Overwrite Dir on Copy") whether it is okay to overwrite an existing
+     directory when recursively copying another directory with the same
+     name.
+
+  o  Now the copy (i.e., file transfer) operation automatically stages
+     and read Unitree files that are not on disk.
+
+  o  SOCKS firewall support.
+
+
+  Changed Functionality:
+  ------------------------
+
+  o  Removed widget heirarchy documentation from man page (it was out of
+     date and not worth maintaining because the source code is available).
+
+  o  There is now only one application default file, XFtp.  Formerly,
+     there were two: XFtp.color and XFtp.mono.  The new XFtp is similar
+     to the old XFtp.color.
+
+  o  Added a command line option, "-color," which forces LLNL XFTP to use
+     a nice color scheme, even if the application defaults file, XFtp, is
+     not found. 
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.4   *
+                  *************************************
+
+
+  Changed Functionality:
+  ------------------------
+
+  o  Cached hostname/username pairs of form "ftp@host" and "anonymous@host"
+     now placed into scrollable list in "Connect to Anonymous" dialog instead
+     of in "Connect to Remote" dialog.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.3   *
+                  *************************************
+
+
+  Changed Functionality:
+  ------------------------
+
+  o  Improved performance of file transfers by increasing size of user and
+     socket buffers.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.2   *
+                  *************************************
+
+  Just bug fixes.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.1   *
+                  *************************************
+
+
+  Minor New Functionality:
+  ------------------------
+
+  o  An internal change was made (involving recursive deletes) that will not
+     affect users outside of Lawrence Livermore National Laboratory.
+
+
+                   ***********************************
+                   *   What's New in LLNL XFTP 2.0   *
+                   ***********************************
+
+
+  Major New Functionality:
+  ------------------------
+
+  o  Added new features that make it painless to connect to an anonymous
+     FTP site:
+
+         "Connect" to Anonymous" in "Connect" menus
+         "Anonymous Ftp Password" in "Preferences" dialog (via "Options" menu)
+
+  o  Added new mechanism for viewing remote (as well as local) files using
+     any combination of the built-in viewer or external viewers of your
+     choice (e.g., "xv" and "emacs"):
+
+         "View" button in main window
+         "View Preferences" dialog in "Options" menu
+
+  o  Added the ability to display long directory lists sorted by date:
+
+         "Sort Long Lists By Date" in "Preferences" dialog (via "Options" menu)
+
+
+  Minor New Functionality:
+  ------------------------
+
+  o  An easier way to re-enter previously visited directories:
+         "Go to Previous Directory" in "Dir" menus
+
+  o  The ability to specify whether to automatically enter newly created
+     directories:
+         "Enter Dir Upon Creation" in "Preferences" dialog (via "Options" menu)
+
+  o  The ablility to specify maximum amount of time to wait for a response
+     from an Ftp server before timing out:
+         "Max Time For Ftp Reply" in "Preferences" dialog (via "Options" menu)
+
+  o  Now works better with many non-Unix FTP servers (e.g., FTP servers on
+     VMS and Macintosh systems)
+

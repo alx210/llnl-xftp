@@ -1,0 +1,276 @@
+*****************************************************************************
+*                                                                           *
+*                                  CHANGES                                  *
+*                                                                           *
+*  This file presents an exhaustive list of changes (including bug fixes,   *
+*  porting modifications, etc.) made to the program.  This information is   *
+*  included for completeness, but will probably be too detailed to be of    *
+*  interest to most users.  See file "NEW_FEATURES" for a summary of major  *
+*  changes.                                                                 *
+*                                                                           *
+*****************************************************************************
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.1b5   *
+                  *************************************
+
+  Fixed some problems:
+  --------------------
+
+  o Added more porting patches for UnixWare.
+
+  o Added porting patches for Tenon's MachTen 4.0.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.1b4   *
+                  *************************************
+
+  Fixed some problems:
+  --------------------
+
+  o Added porting patch for UnixWare.
+
+  o Changed the volume of error/alert beeps to user's base level.  It had
+    been set to the loudest bell volume supported by the X server.
+
+  o Added porting patch for AIX 3.2.4.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.1b3   *
+                  *************************************
+
+  Fixed some problems:
+  --------------------
+
+  o  Improved robustness of file transfer abort logic.
+
+  o  Fixed bug that could cause LLNL XFTP to mysteriously dump core while
+     a file is being viewed.
+
+  o  Fixed minor problem in long directory list for UniTree host.
+
+  o  Added porting patches for NEWS-OS 4.2.
+
+  o  Improved robustness of online help.
+
+  o  Added porting patches for Solaris 2.4 with IXI Motif.
+
+  o  Added porting patches for QNX.
+
+  o  Added kludge for correct longs lists for NSL UniTree directories.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.1b2   *
+                  *************************************
+
+  Fixed some problems:
+  --------------------
+
+  o  Fixed logic for aborting file transfer of file to be viewed.
+
+  o  The user preference PRESERVE VMS VER NUMS now works again (this was
+     broken in 2.1b1).
+
+  o  Fixed bug that could cause a connection to certain VMS FTP servers
+     to be lost if an operation is performed on an empty directory.
+
+  o  User names with embedded spaces now correctly handled by connection
+     dialogs.
+
+  o  Fixed bug that could sometimes cause directory entries to be listed
+     slightly out of order.
+
+  o  Improved logic for aborting file transfers from Unitree to local host.
+
+  o  Processing of "quoted" command now continues if a 3xx reply is received
+     from the FTP server.
+
+  o  Fixed bug that prevented some VMS files from being successfully viewed.
+
+  o  Fixed bug that caused bogus transfer times for viewed files to be
+     reported.
+
+  o  Plugged a memory leak.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.1b1   *
+                  *************************************
+
+  New Functionality:
+  ------------------
+
+  o  The ability to automatically stage and read Unitree files that are
+     not on disk.
+
+  o  The ability for the user to specify (via a new user preference,
+     OVERWRITE DIR ON COPY) whether it is okay to overwrite an existing
+     directory when recursively copying another directory with the same
+     name.
+     
+
+  Fixed some problems:
+  --------------------
+
+  o  Xftp now works with versions 2.3 and 2.4 of FTPd, a Macintosh FTP 
+     server.
+
+  o  Eliminated compiler warning errors on Solaris, NeXT, and FreeBSD
+     systems.
+
+
+  Other minor changes:
+  --------------------
+
+  o  Removed widget heirarchy documentation from man page (it was out of
+     date and not worth maintaining because the source code is available).
+
+  o  There is now only one application default file, XFtp.  Formerly,
+     there were two: XFtp.color and XFtp.mono.  The new XFtp is similar
+     to the old XFtp.color.
+
+  o  Added a command line option, "-color," which forces LLNL XFTP to use
+     a nice color scheme, even if the application defaults file, XFtp, is
+     not found. 
+
+  o  Added sections to Makefile.alt for building on Solaris with gcc and
+     for statically building on Solaris.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.4   *
+                  *************************************
+
+
+  Fixed some problems:
+  --------------------
+
+  o  Fixed memory allocation bugs in file viewer logic.
+
+  o  Fixed bug that could cause core dump if file transfer time is zero.
+
+  o  Changed names of local variables "index" in order to avoid name
+     conflicts on some systems.
+
+  o  Now use XmFONTLIST_DEFAULT_TAG instead of XmSTRING_DEFAULT_CHARSET
+     as arguments in calls to XmStringGetLtoR() and XmStringCreateLtoR()
+     when building with Motif 1.2.
+
+  o  Fixed bug that could cause a broken TCP connection to go undetected.
+
+  o  Fixed bug that could cause failure to get remote directory name to
+     go undetected.
+
+  o  Fixed bug that could cause infinite looping on failed third-party
+     file transfer.
+
+  o  Improved Imakefile for BSD/OS.
+
+  o  Fixed problem where "dot" files on some remote systems (e.g., IRIX
+     and AIX) were not listed.
+
+  o  Fixed bug that could cause problem on DEC OSF/1 when displaying a
+     local long directory list.
+
+  o  Fixed problems in the dialogs that monitor the progress of operations
+     (such as file transfers and deletes) that could occasionally make them
+     unreadable.
+
+  o  Added section to Makefile.alt for SGI IRIX 4.x.
+
+
+  Changed functionality:
+  ----------------------
+
+  o  Cached hostname/username pairs of form "ftp@host" and "anonymous@host"
+     now placed into scrollable list in "Connect to Anonymous" dialog instead
+     of in "Connect to Remote" dialog.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.3   *
+                  *************************************
+
+  Changed functionality:
+  ----------------------
+
+  o  Improved performance of file transfers by increasing size of user and
+     socket buffers.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.2   *
+                  *************************************
+
+  Fixed a problem:
+  ----------------
+
+  o  A bug was fixed that could cause a core dump if an FTP server returns
+     an error reply to a request for a "long" directory list.
+
+
+                  *************************************
+                  *   What's New in LLNL XFTP 2.0.1   *
+                  *************************************
+
+
+  Fixed some problems:
+  --------------------
+
+  o  An internal change was made (involving recursive deletes) that will not
+     affect users outside of Lawrence Livermore National Laboratory.
+
+  o  Fixed bug that could cause a core dump if FTP server returns 5xx error
+     reply to "PWD" request (e.g., because permission is denied).
+
+
+                   ***********************************
+                   *   What's New in LLNL XFTP 2.0   *
+                   ***********************************
+
+  New Functionality:
+  ------------------
+
+  o  New features that make it painless to connect to an anonymous FTP site:
+         "Connect" to Anonymous" in "Connect" menus
+         "Anonymous Ftp Password" in "Preferences" dialog (via "Options" menu)
+
+  o  New mechanism for viewing remote (as well as local) files using any
+     combination of the built-in viewer or external viewers of your choice
+     (e.g., "xv" and "emacs"):
+         "View" button in main window
+         "View Preferences" dialog in "Options" menu
+
+  o  The ability to display long directory lists sorted by date:
+         "Sort Long Lists By Date" in "Preferences" dialog (via "Options" menu)
+
+  o  An easier way to re-enter previously visited directories:
+         "Go to Previous Directory" in "Dir" menus
+
+  o  The ability to specify whether to automatically enter newly created
+     directories:
+         "Enter Dir Upon Creation" in "Preferences" dialog (via "Options" menu)
+
+  o  The ablility to specify maximum amount of time to wait for a response
+     from an Ftp server before timing out:
+         "Max Time For Ftp Reply" in "Preferences" dialog (via "Options" menu)
+
+  Fixed some problems:
+  --------------------
+
+  o  Ports to a wider range of platforms, including:
+         Sun SPARCstation under Solaris 2.3
+         DEC 4000/710 (Alpha) under DEC OSF/1 Version 1.3
+         Most SVR4 systems
+         Convex OS
+
+  o  Now works better with many non-Unix FTP servers (e.g., FTP servers on
+     VMS and Macintosh systems)
+
+  o  Imake support
+
+  o  A number of bugs were fixed
